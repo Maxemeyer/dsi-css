@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Pictochat Element Test</title>
+
+    <script src="/assets/JS/pictochat_element.js" defer></script>
+
+    <style>
+      @font-face {
+          font-family: 'NDS12';
+          src:url('/assets/fonts/NDS12.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+      }
+
+      :root {
+
+      }
+
+      * {
+          margin: 0;
+          padding: 0;
+      }
+
+      body {
+          font-family: 'NDS12', sans-serif;
+          color: #415969;
+          font-size: 9px;
+          line-height: 16.2px;
+          margin: 1rem;
+
+          fieldset {
+              position: relative;
+              width: 230px;
+              height: 81px;
+              outline: 1px solid white;
+              border: 1px solid #415969;
+              border-radius: 3px;
+              corner-shape: bevel;
+              overflow: hidden;
+
+              background-image: repeating-linear-gradient(
+                      to bottom,
+                      white 0,
+                      white 16.2px,
+                      #B2C3DB 16.2px,
+                      #B2C3DB 17.2px,
+                      white 17.2px,
+                      white 32px,
+                      #B2C3DB 32px,
+                      #B2C3DB 33px,
+                      white 33px,
+                      white 48px,
+                      #B2C3DB 48px,
+                      #B2C3DB 49px,
+                      white 49px,
+                      white 64px,
+                      #B2C3DB 64px,
+                      #B2C3DB 65px,
+                      white 65px,
+                      white 81px
+              );
+
+              legend {
+                  position: absolute;
+                  top: -1px;
+                  left: -1px;
+                  min-width: 50px;
+                  width: max-content;
+                  padding: 0 3px 0 4px;
+                  background-color: #B2C3DB;
+                  border: 1px solid #415969;
+                  border-radius: 3px 0;
+                  corner-shape: bevel;
+
+                  display: inline-grid;
+
+                  span, input {
+                      grid-area: 1 / 1;
+                  }
+
+                  span {
+                      width: min-content;
+                      color: transparent;
+                      white-space: pre;
+                  }
+
+                  input {
+                      background-color: transparent;
+                      border: none;
+                      font-family: 'NDS12', sans-serif;
+                      font-size: 9px;
+                      line-height: 16.2px;
+                      color: #415969;
+                      overflow: visible;
+                  }
+                  input:focus {
+                      outline: none;
+                      border: none;
+                  }
+              }
+
+              textarea {
+                  font-family: 'NDS12', sans-serif;
+                  color: #415969;
+                  font-size: 9px;
+                  line-height: 16.2px;
+                  resize: none;
+                  border: none;
+                  background-color: transparent;
+                  width: 230px;
+                  padding: 0 4px;
+                  overflow: hidden;
+              }
+              textarea:focus {
+                  outline: none;
+                  border: none;
+              }
+          }
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset class="pictochatChatInput">
+      <legend class="pictochatUsernameLegend">
+        <span class="pictochatSyncInputWidth"></span>
+        <input type="text" class="pictochatUsernameInput" maxlength="10" spellcheck="false" placeholder="Username" aria-label="pictochat username input">
+      </legend>
+      <textarea class="pictochatTextarea" rows="5"  maxlength="190" spellcheck="false" aria-label="pictochat message textarea"></textarea>
+    </fieldset>
+  </body>
+</html>

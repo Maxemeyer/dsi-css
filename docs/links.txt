@@ -1,0 +1,47 @@
+first draft
+
+https://www.spriters-resource.com/ds_dsi/systembiosds/asset/187312/
+https://www.reddit.com/r/NintendoDS/comments/1plgith/nintendo_dslite_vs_nintendo_dsi/?tl=de
+https://www.spriters-resource.com/ds_dsi/systembiosds/asset/12454/
+https://www.copetti.org/writings/consoles/nintendo-ds/
+https://tcrf.net/Nintendo_DSi
+https://www.youtube.com/watch?v=Olw3cjy-eKg
+https://www.figma.com/community/file/1407177165948708651/nintendo-ds-design-system-v1-3-3
+https://wiki.wiidatabase.de/wiki/DSi-Systemmen%C3%BC
+https://en.wikipedia.org/wiki/Nintendo_DSi_system_software
+
+
+second drafts
+
+https://www.spriters-resource.com/ds_dsi/systembiosds/
+https://www.spriters-resource.com/ds_dsi/systembiosds/asset/187312/
+https://www.spriters-resource.com/ds_dsi/systembiosds/asset/187335/
+https://www.spriters-resource.com/ds_dsi/systembiosds/asset/146759/
+https://www.spriters-resource.com/ds_dsi/systembiosds/asset/12454/
+
+https://www.reddit.com/r/NintendoDS/comments/1plgith/nintendo_dslite_vs_nintendo_dsi/?tl=de
+
+https://tcrf.net/Nintendo_DSi
+    https://tcrf.net/Proto:Nintendo_DSi
+
+    see assets
+https://www.figma.com/design/fSyTqHtfLYN9BpiX3XDxNn/Nintendo-DS-Design-System-V1.3.3--Community-?node-id=3175-95016&t=ltuUhF0CDjsz9AT4-0
+https://www.dafont.com/nds12.font
+    guides
+https://www.figma.com/design/fSyTqHtfLYN9BpiX3XDxNn/Nintendo-DS-Design-System-V1.3.3--Community-?node-id=130-106399&t=ltuUhF0CDjsz9AT4-0
+https://www.ales.lat/thoughts/a-trip-down-memory-lane
+
+fonts?
+https://github.com/lueyo/DS-Menu/blob/main/src/cave-story-dsi.ttf
+https://github.com/lueyo/DS-Menu/blob/main/src/pictochat.ttf
+https://github.com/lueyo/DS-Menu/blob/main/src/font.ttf
+
+sounds?
+https://ds.lueyo.es/src/opends.mp3
+https://ds.lueyo.es/src/closeds.mp3
+
+https://en.wikipedia.org/wiki/Nintendo_DSi_system_software
+
+html elements
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements
+https://www.w3schools.com/html/html_elements.asp

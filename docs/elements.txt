@@ -1,0 +1,79 @@
+main menu buttons
+
+main menu range & scrollbar
+
+settings buttons
+
+pictochat buttons
+
+image app camera filter menu buttons
+
+"sprechblasen" main menu
+
+images
+
+backgrounds system software
+
+"info card settings"
+
+"radio button settings top right"
+
+setting inputs
+
+carousel element settings
+
+pop up buttons
+
+see references DSi Shop
+
+pictochat canvas & text-input in a section? container 37ch width top 27ch width 10ch width name font 4+3+10px line height
+
+image editor canvas & and tool buttons
+
+Pictochat-Message-container
+
+image app calendar
+
+image app buttons style
+
+image app range or scroll-bar
+
+image app "sprechblase" black
+image app "sprechblase" orange while drag
+
+image app search "sprechblase"
+
+image app diashow settings elements
+
+image app editor "sprechblase"
+image app editor tool buttons for canvas
+
+image app top screen info card "datumstrenner?"
+
+table sound app
+
+"sprechblasen!!!" sound app
+
+sound app noise range
+
+sound app shuffel/repeat/linear button
+
+sound app track/video/range bar element
+
+sound app start/stop button
+
+sound app editor radio/checkbox buttons
+
+ds download software app
+
+ds download software app clock
+
+ds download software app calendar
+
+ds download software app calendar table?
+
+3ds-Transfer app pop up element
+
+loading animation
+
+main menu app element
