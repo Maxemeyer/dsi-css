@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Pictochat Element Test</title>
 
-    <script src="/assets/JS/pictochat_element.js" defer></script>
+    <script src="./assets/JS/pictochat_element.js" defer></script>
 
     <style>
       @font-face {
           font-family: 'NDS12';
-          src:url('/assets/fonts/NDS12.woff') format('woff');
+          src:url('./assets/fonts/NDS12.woff') format('woff');
           font-weight: normal;
           font-style: normal;
           font-display: swap;
@@ -40,6 +40,8 @@
               border-radius: 3px;
               corner-shape: bevel;
               overflow: hidden;
+
+              display: inline-grid;
 
               background-image: repeating-linear-gradient(
                       to bottom,
@@ -111,6 +113,7 @@
                   border: none;
                   background-color: transparent;
                   width: 230px;
+                  height: 81px;
                   padding: 0 4px;
                   overflow: hidden;
               }
@@ -123,12 +126,14 @@
     </style>
   </head>
   <body>
-    <fieldset class="pictochatChatInput">
-      <legend class="pictochatUsernameLegend">
-        <span class="pictochatSyncInputWidth"></span>
-        <input type="text" class="pictochatUsernameInput" maxlength="10" spellcheck="false" placeholder="Username" aria-label="pictochat username input">
+    <fieldset class="chatInput">
+      <legend>
+        <span class="syncInputWidth"></span>
+
+        <input type="text" class="usernameInput" maxlength="10" spellcheck="false" placeholder="Username" aria-label="pictochat username input">
       </legend>
-      <textarea class="pictochatTextarea" rows="5"  maxlength="190" spellcheck="false" aria-label="pictochat message textarea"></textarea>
+
+      <textarea rows="5" spellcheck="false" aria-label="pictochat message textarea"></textarea>
     </fieldset>
   </body>
 </html>

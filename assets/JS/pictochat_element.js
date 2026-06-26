@@ -5,10 +5,8 @@ const span = legend.querySelector('span');
 const input = legend.querySelector('input');
 
 function responsiveIndent() {
-    indent = legend.getBoundingClientRect().width - 1;
+    let indent = legend.getBoundingClientRect().width - 1;
     textarea.style.textIndent = indent + 'px';
-
-    console.log(indent)
 }
 
 function syncInputWidth() {
@@ -17,10 +15,18 @@ function syncInputWidth() {
     input.style.width = width + 'px';
 
     responsiveIndent();
+}
 
-    console.log(width);
-    console.log(input.style.width);
+function forceMaxLength() {
+    if (textarea.scrollHeight !== textarea.offsetHeight) {
+        console.log("statement check");
+
+        document.execCommand('undo');
+    }
 }
 
 input.addEventListener('input', syncInputWidth);
+textarea.addEventListener('input', forceMaxLength);
+
 syncInputWidth();
+forceMaxLength();
