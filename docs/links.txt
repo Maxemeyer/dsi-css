@@ -45,3 +45,7 @@ https://en.wikipedia.org/wiki/Nintendo_DSi_system_software
 html elements
 https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements
 https://www.w3schools.com/html/html_elements.asp
+
+canvas tutorials
+https://www.youtube.com/watch?v=EO6OkltgudE&list=PLpPnRKq7eNW3We9VdCfx9fprhqXHwTPXL
+https://www.youtube.com/watch?v=P_B-O8CLwDs

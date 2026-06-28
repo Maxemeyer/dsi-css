@@ -1,0 +1,160 @@
+@font-face {
+    font-family: 'NDS12';
+    src:url('../assets/fonts/NDS12.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --font-family: 'NDS12';
+    --font-size: 45px; /* 9px */
+    --line-height: 81px; /* 16.2px */
+
+    --color-primary: #415969;
+    --color-secondary: #B2C3DB;
+    --color-white: #FFFFFF;
+
+    --fieldset-width: 1150px; /* 230px */
+    --fieldset-height: 405px; /* 81px */
+
+    --border-width: 5px; /* 1px */
+    --border-radius: 15px; /* 3px */
+
+    --bg-img-white-height: calc( ( var(--fieldset-height) - ( var(--border-width) * 4 ) ) / 5 );
+
+    --bg-img-calc-1: calc( var(--line-height) + var(--border-width) );
+    --bg-img-calc-2: calc( var(--bg-img-white-height) * 2 + var(--border-width) );
+    --bg-img-calc-3: calc( var(--bg-img-calc-2) + var(--border-width) );
+    --bg-img-calc-4: calc( var(--bg-img-calc-3) + var(--bg-img-white-height) );
+    --bg-img-calc-5: calc( var(--bg-img-calc-4) + var(--border-width) );
+    --bg-img-calc-6: calc( var(--bg-img-calc-5) + var(--bg-img-white-height) );
+    --bg-img-calc-7: calc( var(--bg-img-calc-6) + var(--border-width) );
+
+    --legend-min-width: 250px; /* 50px */
+
+    --padding-small: 15px; /* 3px */
+    --padding-large: 20px; /* 4px */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family), sans-serif;
+    color: var(--color-primary);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+
+    /*padding: 1rem;*/
+    /*border: 5px solid black;*/
+    /*height: calc(100vh - 2rem - 10px);*/
+    /*aspect-ratio: 1 / 1;*/
+
+    .chatInput {
+        position: relative;
+        width: var(--fieldset-width);
+        height: var(--fieldset-height);
+
+        /*outline: calc(1px * 5) solid white;*/
+
+        border: var(--border-width) solid var(--color-primary);
+        border-radius: var(--border-radius);
+        corner-shape: bevel;
+        overflow: hidden;
+
+        display: inline-grid;
+
+        background-image: repeating-linear-gradient(
+                to bottom,
+                var(--color-white) 0,
+                var(--color-white) var(--line-height),
+                var(--color-secondary) var(--line-height),
+                var(--color-secondary) var(--bg-img-calc-1),
+                var(--color-white) var(--bg-img-calc-1),
+                var(--color-white) var(--bg-img-calc-2),
+                var(--color-secondary) var(--bg-img-calc-2),
+                var(--color-secondary) var(--bg-img-calc-3),
+                var(--color-white) var(--bg-img-calc-3),
+                var(--color-white) var(--bg-img-calc-4),
+                var(--color-secondary) var(--bg-img-calc-4),
+                var(--color-secondary) var(--bg-img-calc-5),
+                var(--color-white) var(--bg-img-calc-5),
+                var(--color-white) var(--bg-img-calc-6),
+                var(--color-secondary) var(--bg-img-calc-6),
+                var(--color-secondary) var(--bg-img-calc-7)
+        );
+
+        legend {
+            position: absolute;
+            width: max-content;
+            min-width: var(--legend-min-width);
+            top: calc( -1 * var(--border-width) );
+            left: calc( -1 * var(--border-width) );
+            padding: 0 var(--padding-small) 0 var(--padding-large);
+
+            outline: solid var(--color-white);
+            outline-width: 0 var(--border-width) var(--border-width) 0;
+            border: var(--border-width) solid var(--color-primary);
+            border-radius: var(--border-radius) 0;
+            corner-shape: bevel;
+
+            background-color: var(--color-secondary);
+
+            display: inline-grid;
+
+            span, input {
+                grid-area: 1 / 1;
+            }
+
+            span {
+                width: max-content;
+                color: transparent;
+                white-space: pre;
+            }
+
+            input {
+                background-color: transparent;
+                border: none;
+
+                font-family: var(--font-family), sans-serif;
+                font-size: var(--font-size);
+                line-height: var(--line-height);
+                color: var(--color-primary);
+            }
+            input:focus {
+                outline: none;
+                border: none;
+            }
+        }
+
+        textarea {
+            font-family: var(--font-family), sans-serif;
+            font-size: var(--font-size);
+            line-height: var(--line-height);
+            color: var(--color-primary);
+            word-break: break-all;
+
+            background-color: transparent;
+            width: var(--fieldset-width);
+            height: var(--fieldset-height);
+            padding: 0 var(--padding-large);
+            border: none;
+            resize: none;
+            overflow: hidden;
+        }
+        textarea:focus {
+            outline: none;
+            border: none;
+        }
+
+        canvas {
+            width: var(--fieldset-width);
+            height: var(--fieldset-height);
+            background-color: transparent;
+            stroke: black;
+        }
+    }
+}
