@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'NDS12';
-    src:url('../assets/fonts/NDS12.woff') format('woff');
+    src:url('assets/fonts/NDS12.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
