@@ -67,11 +67,11 @@
         context.stroke();
     }
 
-    canvas.addEventListener('mousedown', (event) => {
+    canvas.addEventListener('mousedown', () => {
         isPainting = true;
     });
 
-    canvas.addEventListener('mouseup', event => {
+    canvas.addEventListener('mouseup', () => {
         isPainting = false;
         context.stroke();
         context.beginPath();
@@ -79,7 +79,7 @@
 
     canvas.addEventListener('mousemove', draw);
 
-    clear.addEventListener('click', event => {
+    clear.addEventListener('click', () => {
         context.clearRect(0, 0, canvasWidth, canvasHeight);
     })
   </script>

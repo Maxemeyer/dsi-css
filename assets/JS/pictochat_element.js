@@ -34,11 +34,11 @@ forceMaxLength();
 const stateTextarea = document.getElementById('stateTextarea');
 const stateCanvas = document.getElementById('stateCanvas');
 
-stateTextarea.addEventListener('change', event => {
+stateTextarea.addEventListener('change', () => {
     textarea.style.display = 'unset';
 });
 
-stateCanvas.addEventListener('change', event => {
+stateCanvas.addEventListener('change', () => {
     textarea.style.display = 'none';
 });
 
@@ -95,14 +95,14 @@ canvas.addEventListener('mousedown', (event) => {
     context.moveTo(point.x, point.y);
 });
 
-canvas.addEventListener('mouseup', event => {
+canvas.addEventListener('mouseup', () => {
     isPainting = false;
     context.beginPath();
 });
 
 canvas.addEventListener('mousemove', draw);
 
-clear.addEventListener('click', event => {
+clear.addEventListener('click', () => {
     context.clearRect(0, 0, canvas.width, canvas.height);
     textarea.value = '';
 })
