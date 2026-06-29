@@ -49,3 +49,5 @@ https://www.w3schools.com/html/html_elements.asp
 canvas tutorials
 https://www.youtube.com/watch?v=EO6OkltgudE&list=PLpPnRKq7eNW3We9VdCfx9fprhqXHwTPXL
 https://www.youtube.com/watch?v=P_B-O8CLwDs
+https://dev.to/ascorbic/a-more-realistic-html-canvas-paint-tool-313b
+https://www.youtube.com/watch?v=mRDo-QXVUv8

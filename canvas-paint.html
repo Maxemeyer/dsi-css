@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    canvas {
+        background-color: transparent;
+        border: 5px solid black;
+    }
+
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="1150px" height="405px"></canvas>
+
+  <div id="toolbar">
+    <label>
+      <input type="checkbox" id="color" disabled>
+      Color
+    </label>
+
+    <label>
+      <input type="radio" id="lineWidth" name="lineWidth" checked>
+      Normal
+    </label>
+
+    <label>
+      <input type="radio" name="lineWidth">
+      Bold
+    </label>
+
+    <button id="clear">CLEAR</button>
+
+    <button id="submit">SEND</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const clear = document.getElementById('clear');
+    const lineWidth = document.getElementById('lineWidth');
+    const context = canvas.getContext('2d');
+
+    const canvasOffsetX = canvas.offsetLeft;
+
+    const canvasWidth = canvas.offsetWidth;
+    const canvasHeight = canvas.offsetHeight;
+
+    let isPainting = false;
+
+    const draw = (event) => {
+        if(!isPainting) {
+            return;
+        }
+
+        if (lineWidth.checked) {
+            context.lineWidth = 5;
+        } else {
+            context.lineWidth = 10;
+        }
+
+        context.lineCap = 'round';
+        context.lineJoin = 'round';
+
+        context.lineTo(event.clientX - canvasOffsetX, event.clientY);
+        context.stroke();
+    }
+
+    canvas.addEventListener('mousedown', (event) => {
+        isPainting = true;
+    });
+
+    canvas.addEventListener('mouseup', event => {
+        isPainting = false;
+        context.stroke();
+        context.beginPath();
+    });
+
+    canvas.addEventListener('mousemove', draw);
+
+    clear.addEventListener('click', event => {
+        context.clearRect(0, 0, canvasWidth, canvasHeight);
+    })
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'NDS12';
-    src:url('../assets/fonts/NDS12.woff') format('woff');
+    src: url('../../assets/fonts/NDS12.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -64,8 +64,6 @@ body {
         border-radius: var(--border-radius);
         corner-shape: bevel;
         overflow: hidden;
-
-        display: inline-grid;
 
         background-image: repeating-linear-gradient(
                 to bottom,
@@ -140,6 +138,7 @@ body {
             background-color: transparent;
             width: var(--fieldset-width);
             height: var(--fieldset-height);
+            box-sizing: border-box;
             padding: 0 var(--padding-large);
             border: none;
             resize: none;
@@ -154,7 +153,21 @@ body {
             width: var(--fieldset-width);
             height: var(--fieldset-height);
             background-color: transparent;
-            stroke: black;
+            padding: var(--border-width);
+            border-radius: var(--border-radius);
+            corner-shape: bevel;
+            box-sizing: border-box;
+        }
+    }
+
+    #toolbar {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        .tbInputs {
+            height: var(--font-size);
+            aspect-ratio: 1/1;
         }
     }
 }

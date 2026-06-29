@@ -16,9 +16,40 @@
         <input type="text" class="usernameInput" maxlength="10" spellcheck="false" placeholder="Username" aria-label="pictochat username input">
       </legend>
 
-      <canvas></canvas>
+      <textarea id="textarea" rows="5" spellcheck="false" aria-label="pictochat message textarea"></textarea>
 
-      <textarea rows="5" spellcheck="false" aria-label="pictochat message textarea"></textarea>
+      <canvas id="canvas"></canvas>
     </fieldset>
+
+    <div id="toolbar">
+      <label>
+        <input class="tbInputs" type="radio" id="stateTextarea" name="fieldsetState" checked>
+        Textarea
+      </label>
+
+      <label>
+        <input class="tbInputs" type="radio" id="stateCanvas" name="fieldsetState">
+        Canvas
+      </label>
+
+      <label>
+        <input class="tbInputs" type="checkbox" id="color" disabled>
+        Color
+      </label>
+
+      <label>
+        <input class="tbInputs" type="radio" id="lineWidth" name="lineWidth" checked>
+        Normal
+      </label>
+
+      <label>
+        <input class="tbInputs" type="radio" name="lineWidth">
+        Bold
+      </label>
+
+      <button class="tbInputs" id="clear">CLEAR</button>
+
+      <button class="tbInputs" id="submit">SEND</button>
+    </div>
   </body>
 </html>

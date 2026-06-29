@@ -3,7 +3,6 @@ const legend = fieldset.querySelector('legend');
 const span = legend.querySelector('span');
 const input = legend.querySelector('input');
 const textarea = fieldset.querySelector('textarea');
-const canvas = fieldset.querySelector('canvas');
 
 function responsiveIndent() {
     let indent = legend.getBoundingClientRect().width;
@@ -29,3 +28,81 @@ textarea.addEventListener('input', forceMaxLength);
 
 syncInputWidth();
 forceMaxLength();
+
+
+
+const stateTextarea = document.getElementById('stateTextarea');
+const stateCanvas = document.getElementById('stateCanvas');
+
+stateTextarea.addEventListener('change', event => {
+    textarea.style.display = 'unset';
+});
+
+stateCanvas.addEventListener('change', event => {
+    textarea.style.display = 'none';
+});
+
+
+
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext('2d');
+
+const lineWidth = document.getElementById('lineWidth');
+const clear = document.getElementById('clear');
+
+const canvasOffsetX = canvas.offsetLeft;
+
+let isPainting = false;
+
+function resizeCanvas() {
+    const rect = canvas.getBoundingClientRect();
+
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+}
+
+resizeCanvas();
+
+function getCanvasPoint(event) {
+    const rect = canvas.getBoundingClientRect();
+
+    return {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top
+    };
+}
+
+const draw = (event) => {
+    if(!isPainting) {
+        return;
+    }
+
+    const point = getCanvasPoint(event);
+
+    context.lineWidth = lineWidth.checked ? 5 : 10;
+    context.lineCap = 'round';
+    context.lineJoin = 'round';
+
+    context.lineTo(point.x, point.y);
+    context.stroke();
+}
+
+canvas.addEventListener('mousedown', (event) => {
+    isPainting = true;
+
+    const point = getCanvasPoint(event);
+    context.beginPath();
+    context.moveTo(point.x, point.y);
+});
+
+canvas.addEventListener('mouseup', event => {
+    isPainting = false;
+    context.beginPath();
+});
+
+canvas.addEventListener('mousemove', draw);
+
+clear.addEventListener('click', event => {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    textarea.value = '';
+})
