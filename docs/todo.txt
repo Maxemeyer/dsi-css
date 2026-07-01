@@ -1,0 +1,25 @@
+TODO
+
+DSI-CSS
+
+1. alle System-Software Elemente listen
+2. weiter in bisherige Recherche suchen
+3. Recherche: Best Practice Frameworks
+4. AI Gebrauch dokumentieren
+5. Schwierigkeiten und Erkenntnisse dokumentieren
+6. Quellen und Inspirationen sammeln
+
+
+Pictochat Elemente
+
+0. jede Veränderung durch AI überprüfen
+    0.1 Canvas Paint Funktionalität
+1. Toolbar UI Elemente
+2. Chatbox Elemente
+3. Toolbar Funktionalität
+    3.1 Eraser
+    3.2 Color Picker
+4. Send & Copy Funktionalität
+5. Backgrounds
+6. Canvas für Touchscreens umsetzen
+7. pictochat_element.js besser  strukturieren

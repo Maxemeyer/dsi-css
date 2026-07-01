@@ -16,9 +16,9 @@
         <input type="text" class="usernameInput" maxlength="10" spellcheck="false" placeholder="Username" aria-label="pictochat username input">
       </legend>
 
-      <textarea id="textarea" rows="5" spellcheck="false" aria-label="pictochat message textarea"></textarea>
-
       <canvas id="canvas"></canvas>
+
+      <textarea id="textarea" rows="5" spellcheck="false" aria-label="pictochat message textarea"></textarea>
     </fieldset>
 
     <div id="toolbar">
@@ -28,12 +28,7 @@
       </label>
 
       <label>
-        <input class="tbInputs" type="radio" id="stateCanvas" name="fieldsetState">
-        Canvas
-      </label>
-
-      <label>
-        <input class="tbInputs" type="checkbox" id="color" disabled>
+        <input class="tbInputs" type="checkbox" id="color">
         Color
       </label>
 
@@ -42,14 +37,24 @@
         Normal
       </label>
 
+      <button class="tbButton" id="clear">CLEAR</button>
+
+      <label>
+        <input class="tbInputs" type="radio" id="stateCanvas" name="fieldsetState">
+        Canvas
+      </label>
+
+      <label>
+        <input class="tbInputs" type="checkbox" id="eraser">
+        Eraser
+      </label>
+
       <label>
         <input class="tbInputs" type="radio" name="lineWidth">
         Bold
       </label>
 
-      <button class="tbInputs" id="clear">CLEAR</button>
-
-      <button class="tbInputs" id="submit">SEND</button>
+      <button class="tbButton" id="submit">SEND</button>
     </div>
   </body>
 </html>

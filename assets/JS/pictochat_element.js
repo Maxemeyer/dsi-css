@@ -35,11 +35,11 @@ const stateTextarea = document.getElementById('stateTextarea');
 const stateCanvas = document.getElementById('stateCanvas');
 
 stateTextarea.addEventListener('change', () => {
-    textarea.style.display = 'unset';
+    canvas.style.setProperty('pointer-events', 'none');
 });
 
 stateCanvas.addEventListener('change', () => {
-    textarea.style.display = 'none';
+    canvas.style.setProperty('pointer-events', 'auto');
 });
 
 
@@ -50,7 +50,12 @@ const context = canvas.getContext('2d');
 const lineWidth = document.getElementById('lineWidth');
 const clear = document.getElementById('clear');
 
-const canvasOffsetX = canvas.offsetLeft;
+clear.addEventListener('click', () => {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    textarea.value = '';
+});
+
+// const canvasOffsetX = canvas.offsetLeft;
 
 let isPainting = false;
 
@@ -72,6 +77,10 @@ function getCanvasPoint(event) {
     };
 }
 
+// new color and eraser function variables
+const color = document.getElementById('color');
+const eraser = document.getElementById('eraser');
+
 const draw = (event) => {
     if(!isPainting) {
         return;
@@ -79,6 +88,8 @@ const draw = (event) => {
 
     const point = getCanvasPoint(event);
 
+    context.globalCompositeOperation = eraser.checked ? 'destination-out' : 'source-over';
+    context.strokeStyle = color.checked ? 'red' : 'black';
     context.lineWidth = lineWidth.checked ? 5 : 10;
     context.lineCap = 'round';
     context.lineJoin = 'round';
@@ -87,7 +98,10 @@ const draw = (event) => {
     context.stroke();
 }
 
-canvas.addEventListener('mousedown', (event) => {
+canvas.addEventListener('pointerdown', (event) => {
+    // added by AI for more reliable drawing - testing needed
+    event.preventDefault();
+
     isPainting = true;
 
     const point = getCanvasPoint(event);
@@ -95,14 +109,31 @@ canvas.addEventListener('mousedown', (event) => {
     context.moveTo(point.x, point.y);
 });
 
-canvas.addEventListener('mouseup', () => {
+function cancelPainting(event) {
+    // added by AI for more reliable drawing - testing needed
+    event.preventDefault();
+
     isPainting = false;
     context.beginPath();
+
+    // added by AI for more reliable drawing - testing needed
+    // see chat 01.07.2026
+    if (canvas.hasPointerCapture(event.pointerId)) {
+        canvas.releasePointerCapture(event.pointerId);
+    }
+}
+
+canvas.addEventListener('pointerup', cancelPainting);
+
+canvas.addEventListener('pointermove', (event) => {
+    // added by AI for more reliable drawing - testing needed
+    event.preventDefault();
+
+    draw(event);
 });
 
-canvas.addEventListener('mousemove', draw);
+// added by AI for more reliable drawing - testing needed
+canvas.addEventListener('pointercancel', cancelPainting);
 
-clear.addEventListener('click', () => {
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    textarea.value = '';
-})
+// AI created it and killed it after my questions
+// canvas.addEventListener('pointerleave', cancelPainting);
