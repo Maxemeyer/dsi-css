@@ -81,23 +81,6 @@ function getCanvasPoint(event) {
 const color = document.getElementById('color');
 const eraser = document.getElementById('eraser');
 
-const draw = (event) => {
-    if(!isPainting) {
-        return;
-    }
-
-    const point = getCanvasPoint(event);
-
-    context.globalCompositeOperation = eraser.checked ? 'destination-out' : 'source-over';
-    context.strokeStyle = color.checked ? 'red' : 'black';
-    context.lineWidth = lineWidth.checked ? 5 : 10;
-    context.lineCap = 'round';
-    context.lineJoin = 'round';
-
-    context.lineTo(point.x, point.y);
-    context.stroke();
-}
-
 canvas.addEventListener('pointerdown', (event) => {
     // added by AI for more reliable drawing - testing needed
     event.preventDefault();
@@ -129,7 +112,48 @@ canvas.addEventListener('pointermove', (event) => {
     // added by AI for more reliable drawing - testing needed
     event.preventDefault();
 
-    draw(event);
+    if(!isPainting) {
+        return;
+    }
+
+    const point = getCanvasPoint(event);
+
+    const colors = [
+        '#FB2C36',
+        '#FF692A',
+        '#FE9A37',
+        '#FDC745',
+        '#7CCF35',
+        '#31C950',
+        '#37BC7D',
+        '#36BBA7',
+        '#3BB8DB',
+        '#34A6F4',
+        '#2B7FFF',
+        '#615FFF',
+        '#8E51FF',
+        '#AD46FF',
+        '#E12AFB',
+        '#F6339A',
+        '#FF2056',
+    ]
+
+    //AI!!!
+    const rainbow = context.createLinearGradient(0, 0, point.x, point.y);
+
+    colors.forEach((color, index) => {
+        rainbow.addColorStop(index / (colors.length - 1), color);
+    });
+
+    context.globalCompositeOperation = eraser.checked ? 'destination-out' : 'source-over';
+    context.strokeStyle = color.checked ? rainbow : 'black';
+    context.lineWidth = lineWidth.checked ? 5 : 10;
+    context.lineCap = 'round';
+    context.lineJoin = 'round';
+
+    context.lineTo(point.x, point.y);
+    context.stroke();
+
 });
 
 // added by AI for more reliable drawing - testing needed
