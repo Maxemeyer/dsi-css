@@ -2,6 +2,7 @@ TODO
 
 DSI-CSS
 
+0. letzten commit genauer dokumentieren 02.07.2026
 1. System-Software Elemente
 2. weiter in bisherige Recherche suchen
 3. Recherche: Best Practice Frameworks
@@ -10,17 +11,15 @@ DSI-CSS
 6. Quellen sammeln
 
 
-Pictochat Elemente
+Pictochat
 
 0. jede Veränderung durch AI überprüfen
-    0.1 Canvas Paint Funktionalität
 1. Toolbar UI Elemente
-2. Chatbox Elemente
-3. Toolbar Funktionalität
-    3.1 Rainbow Pen
-4. Send & Copy Funktionalität
+2. Message Element
+3. Send & Copy Funktionalität
+4. Unscharfe Zeichnungen Canvas?
 5. Backgrounds
-6. Canvas für Touchscreens umsetzen
-7. pictochat_element.js besser  strukturieren
+6. pictochat.js besser  strukturieren
+7. Problem: kurzer Name => textarea full => langer Name => textarea overflow !!!
 
-letzten commit genauer dokumentieren 02.07.2026
+Buttons...

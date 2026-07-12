@@ -11,7 +11,7 @@ function responsiveIndent() {
 
 function syncInputWidth() {
     span.textContent = input.value || input.placeholder;
-    let width = span.getBoundingClientRect().width + 5;
+    let width = span.getBoundingClientRect().width + 1;
     input.style.width = width + 'px';
 
     responsiveIndent();
@@ -55,8 +55,6 @@ clear.addEventListener('click', () => {
     textarea.value = '';
 });
 
-// const canvasOffsetX = canvas.offsetLeft;
-
 let isPainting = false;
 
 function resizeCanvas() {
@@ -87,9 +85,9 @@ canvas.addEventListener('pointerdown', (event) => {
 
     isPainting = true;
 
-    const point = getCanvasPoint(event);
-    context.beginPath();
-    context.moveTo(point.x, point.y);
+    //const point = getCanvasPoint(event);
+    //context.beginPath();
+    //context.moveTo(point.x, point.y);
 });
 
 function cancelPainting(event) {
@@ -97,7 +95,8 @@ function cancelPainting(event) {
     event.preventDefault();
 
     isPainting = false;
-    context.beginPath();
+
+    // context.beginPath(); maybe not needed
 
     // added by AI for more reliable drawing - testing needed
     // see chat 01.07.2026
@@ -107,6 +106,19 @@ function cancelPainting(event) {
 }
 
 canvas.addEventListener('pointerup', cancelPainting);
+
+// for draw function point.x & y
+function calcRectPos(point) {
+    let calc = Math.round(point / 5) * 5;
+
+    if (calc > point) {
+        calc = calc - 5;
+    }
+
+    return calc;
+}
+
+let indexRainbow = 0;
 
 canvas.addEventListener('pointermove', (event) => {
     // added by AI for more reliable drawing - testing needed
@@ -118,7 +130,7 @@ canvas.addEventListener('pointermove', (event) => {
 
     const point = getCanvasPoint(event);
 
-    const colors = [
+    const rainbow = [
         '#FB2C36',
         '#FF692A',
         '#FE9A37',
@@ -138,26 +150,23 @@ canvas.addEventListener('pointermove', (event) => {
         '#FF2056',
     ]
 
-    //AI!!!
-    const rainbow = context.createLinearGradient(0, 0, point.x, point.y);
+    const size = lineWidth.checked ? 1 : 2;
 
-    colors.forEach((color, index) => {
-        rainbow.addColorStop(index / (colors.length - 1), color);
-    });
+    if (eraser.checked) {
+        context.clearRect(Math.round(point.x), Math.round(point.y), size, size);
+    } else {
+        if (indexRainbow >= 17) {
+            indexRainbow = 0;
+        }
 
-    context.globalCompositeOperation = eraser.checked ? 'destination-out' : 'source-over';
-    context.strokeStyle = color.checked ? rainbow : 'black';
-    context.lineWidth = lineWidth.checked ? 5 : 10;
-    context.lineCap = 'round';
-    context.lineJoin = 'round';
+        context.fillStyle = color.checked ? rainbow[Math.round(indexRainbow)] : 'black';
 
-    context.lineTo(point.x, point.y);
-    context.stroke();
+        context.fillRect(Math.round(point.x), Math.round(point.y), size, size);
 
+        // 0.1 to stretch the gradient
+        indexRainbow = indexRainbow + 0.1;
+    }
 });
 
 // added by AI for more reliable drawing - testing needed
 canvas.addEventListener('pointercancel', cancelPainting);
-
-// AI created it and killed it after my questions
-// canvas.addEventListener('pointerleave', cancelPainting);

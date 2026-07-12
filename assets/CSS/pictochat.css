@@ -8,18 +8,19 @@
 
 :root {
     --font-family: 'NDS12';
-    --font-size: 45px; /* 9px */
-    --line-height: 81px; /* 16.2px */
+    --font-size: 10px;
+    --line-height: 16.2px;
 
+    --color-black: #000000;
     --color-primary: #415969;
     --color-secondary: #B2C3DB;
     --color-white: #FFFFFF;
 
-    --fieldset-width: 1150px; /* 230px */
-    --fieldset-height: 405px; /* 81px */
+    --fieldset-width: 230px;
+    --fieldset-height: 81px;
 
-    --border-width: 5px; /* 1px */
-    --border-radius: 15px; /* 3px */
+    --border-width: 1px;
+    --border-radius: 3px;
 
     --bg-img-white-height: calc( ( var(--fieldset-height) - ( var(--border-width) * 4 ) ) / 5 );
 
@@ -31,10 +32,10 @@
     --bg-img-calc-6: calc( var(--bg-img-calc-5) + var(--bg-img-white-height) );
     --bg-img-calc-7: calc( var(--bg-img-calc-6) + var(--border-width) );
 
-    --legend-min-width: 250px; /* 50px */
+    --legend-min-width: 50px;
 
-    --padding-small: 15px; /* 3px */
-    --padding-large: 20px; /* 4px */
+    --padding-small: 3px;
+    --padding-large: 4px;
 }
 
 * {
@@ -43,8 +44,13 @@
 }
 
 body {
+    /* NDS Screen resolution */
+    width: 256px;
+    height: 192px;
+    border: 5px solid black;
+
     font-family: var(--font-family), sans-serif;
-    color: var(--color-primary);
+    color: var(--color-black);
     font-size: var(--font-size);
     line-height: var(--line-height);
 
@@ -59,7 +65,7 @@ body {
         width: var(--fieldset-width);
         height: var(--fieldset-height);
 
-        outline: calc(1px * 5) solid white;
+        outline: var(--border-width) solid var(--color-white);
         border: var(--border-width) solid var(--color-primary);
         border-radius: var(--border-radius);
         corner-shape: bevel;
@@ -94,13 +100,10 @@ body {
             top: calc( -1 * var(--border-width) );
             left: calc( -1 * var(--border-width) );
             padding: 0 var(--padding-small) 0 var(--padding-large);
-
-            outline: solid var(--color-white);
-            outline-width: 0 var(--border-width) var(--border-width) 0;
+            outline: var(--border-width) solid var(--color-white);
             border: var(--border-width) solid var(--color-primary);
             border-radius: var(--border-radius) 0;
             corner-shape: bevel;
-
             background-color: var(--color-secondary);
 
             display: inline-grid;
@@ -134,7 +137,7 @@ body {
             font-family: var(--font-family), sans-serif;
             font-size: var(--font-size);
             line-height: var(--line-height);
-            color: var(--color-primary);
+            color: var(--color-black);
             word-break: break-all;
 
             background-color: transparent;
@@ -163,6 +166,7 @@ body {
             border-radius: var(--border-radius);
             corner-shape: bevel;
             box-sizing: border-box;
+            cursor: crosshair;
 
             touch-action: none;
         }
@@ -181,13 +185,20 @@ body {
             aspect-ratio: 1/1;
         }
 
-        .tbButton {
-            width: 100%;
-
-            font-family: var(--font-family), sans-serif;
+        button {
+            outline: var(--border-width) solid #4A4A4A;
+            border: var(--border-width) solid var(--color-white);
+            border-radius: 1px;
+            corner-shape: bevel;
+            padding: 0 14px;
+            font-family: 'NDS12', sans-serif;
             font-size: var(--font-size);
             line-height: var(--line-height);
-            color: var(--color-primary);
+            background: linear-gradient(to bottom, #C6C6C6, #D6D6D6, #E7E7E7, #F7F7F7);
+        }
+        button:active {
+            border-color: #B5B5B5;
+            background: linear-gradient(to top, #C6C6C6, #D6D6D6, #E7E7E7, #F7F7F7);
         }
     }
 }
