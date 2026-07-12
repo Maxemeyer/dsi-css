@@ -6,36 +6,49 @@
     font-display: swap;
 }
 
+@media (width < 100vh) {
+    :root {
+        --ratio-width: 100vw;
+        --ratio-height: 75vw;
+    }
+}
+
 :root {
+    --ratio-width: calc(100vh * (4 / 3));
+    --ratio-height: 100vh;
+
+    --original-width: 256;
+    --original-height: 192;
+
+    --pixel: calc(1 / var(--original-width) * var(--ratio-width));
+
     --font-family: 'NDS12';
-    --font-size: 10px;
-    --line-height: 16.2px;
+    --font-size: calc(10  / var(--original-height) * var(--ratio-height));
+    --line-height: calc(16.2 / var(--original-height) * var(--ratio-height));
 
     --color-black: #000000;
     --color-primary: #415969;
     --color-secondary: #B2C3DB;
     --color-white: #FFFFFF;
 
-    --fieldset-width: 230px;
-    --fieldset-height: 81px;
+    --fieldset-width: calc(230 / var(--original-width) * var(--ratio-width));
+    --fieldset-height: calc(81 / var(--original-height) * var(--ratio-height));
 
-    --border-width: 1px;
-    --border-radius: 3px;
+    --padding-small: calc(3 / var(--original-width) * var(--ratio-width));
+    --padding-large: calc(4 / var(--original-width) * var(--ratio-width));
+    --border-radius: calc(3 / var(--original-width) * var(--ratio-width));
 
-    --bg-img-white-height: calc( ( var(--fieldset-height) - ( var(--border-width) * 4 ) ) / 5 );
+    --bg-img-white-height: calc( ( var(--fieldset-height) - ( var(--pixel) * 4 ) ) / 5 );
 
-    --bg-img-calc-1: calc( var(--line-height) + var(--border-width) );
-    --bg-img-calc-2: calc( var(--bg-img-white-height) * 2 + var(--border-width) );
-    --bg-img-calc-3: calc( var(--bg-img-calc-2) + var(--border-width) );
+    --bg-img-calc-1: calc( var(--line-height) + var(--pixel) );
+    --bg-img-calc-2: calc( var(--bg-img-white-height) * 2 + var(--pixel) );
+    --bg-img-calc-3: calc( var(--bg-img-calc-2) + var(--pixel) );
     --bg-img-calc-4: calc( var(--bg-img-calc-3) + var(--bg-img-white-height) );
-    --bg-img-calc-5: calc( var(--bg-img-calc-4) + var(--border-width) );
+    --bg-img-calc-5: calc( var(--bg-img-calc-4) + var(--pixel) );
     --bg-img-calc-6: calc( var(--bg-img-calc-5) + var(--bg-img-white-height) );
-    --bg-img-calc-7: calc( var(--bg-img-calc-6) + var(--border-width) );
+    --bg-img-calc-7: calc( var(--bg-img-calc-6) + var(--pixel) );
 
-    --legend-min-width: 50px;
-
-    --padding-small: 3px;
-    --padding-large: 4px;
+    --legend-min-width: calc(50 / var(--original-width) * var(--ratio-width));
 }
 
 * {
@@ -44,10 +57,10 @@
 }
 
 body {
-    /* NDS Screen resolution */
-    width: 256px;
-    height: 192px;
-    border: 5px solid black;
+    width: var(--ratio-width);
+    min-height: 100vh;
+    margin: auto;
+    background-color: wheat;
 
     font-family: var(--font-family), sans-serif;
     color: var(--color-black);
@@ -65,8 +78,8 @@ body {
         width: var(--fieldset-width);
         height: var(--fieldset-height);
 
-        outline: var(--border-width) solid var(--color-white);
-        border: var(--border-width) solid var(--color-primary);
+        outline: var(--pixel) solid var(--color-white);
+        border: var(--pixel) solid var(--color-primary);
         border-radius: var(--border-radius);
         corner-shape: bevel;
         overflow: hidden;
@@ -97,11 +110,11 @@ body {
 
             width: max-content;
             min-width: var(--legend-min-width);
-            top: calc( -1 * var(--border-width) );
-            left: calc( -1 * var(--border-width) );
+            top: calc( -1 * var(--pixel) );
+            left: calc( -1 * var(--pixel) );
             padding: 0 var(--padding-small) 0 var(--padding-large);
-            outline: var(--border-width) solid var(--color-white);
-            border: var(--border-width) solid var(--color-primary);
+            outline: var(--pixel) solid var(--color-white);
+            border: var(--pixel) solid var(--color-primary);
             border-radius: var(--border-radius) 0;
             corner-shape: bevel;
             background-color: var(--color-secondary);
@@ -162,7 +175,7 @@ body {
             width: var(--fieldset-width);
             height: var(--fieldset-height);
             background-color: transparent;
-            padding: var(--border-width);
+            padding: var(--pixel);
             border-radius: var(--border-radius);
             corner-shape: bevel;
             box-sizing: border-box;
@@ -186,8 +199,8 @@ body {
         }
 
         button {
-            outline: var(--border-width) solid #4A4A4A;
-            border: var(--border-width) solid var(--color-white);
+            outline: var(--pixel) solid #4A4A4A;
+            border: var(--pixel) solid var(--color-white);
             border-radius: 1px;
             corner-shape: bevel;
             padding: 0 14px;

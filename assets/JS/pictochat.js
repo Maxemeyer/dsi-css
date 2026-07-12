@@ -11,7 +11,7 @@ function responsiveIndent() {
 
 function syncInputWidth() {
     span.textContent = input.value || input.placeholder;
-    let width = span.getBoundingClientRect().width + 1;
+    let width = span.getBoundingClientRect().width + 5;
     input.style.width = width + 'px';
 
     responsiveIndent();
@@ -150,10 +150,10 @@ canvas.addEventListener('pointermove', (event) => {
         '#FF2056',
     ]
 
-    const size = lineWidth.checked ? 1 : 2;
+    const size = lineWidth.checked ? 5 : 10;
 
     if (eraser.checked) {
-        context.clearRect(Math.round(point.x), Math.round(point.y), size, size);
+        context.clearRect(calcRectPos(point.x), calcRectPos(point.y), size, size);
     } else {
         if (indexRainbow >= 17) {
             indexRainbow = 0;
@@ -161,7 +161,7 @@ canvas.addEventListener('pointermove', (event) => {
 
         context.fillStyle = color.checked ? rainbow[Math.round(indexRainbow)] : 'black';
 
-        context.fillRect(Math.round(point.x), Math.round(point.y), size, size);
+        context.fillRect(calcRectPos(point.x), calcRectPos(point.y), size, size);
 
         // 0.1 to stretch the gradient
         indexRainbow = indexRainbow + 0.1;
