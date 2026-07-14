@@ -6,16 +6,16 @@
     font-display: swap;
 }
 
-@media (width < 100vh) {
+@media (width < 100dvh) {
     :root {
-        --ratio-width: 100vw;
-        --ratio-height: 75vw;
+        --ratio-width: 100dvw;
+        --ratio-height: 75dvw;
     }
 }
 
 :root {
-    --ratio-width: calc(100vh * (4 / 3));
-    --ratio-height: 100vh;
+    --ratio-width: calc(100dvh * (4 / 3));
+    --ratio-height: 100dvh;
 
     --original-width: 256;
     --original-height: 192;
@@ -58,7 +58,7 @@
 
 body {
     width: var(--ratio-width);
-    min-height: 100vh;
+    min-height: 100dvh;
     margin: auto;
     background-color: wheat;
 
