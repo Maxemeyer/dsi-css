@@ -6,13 +6,6 @@
     font-display: swap;
 }
 
-@media (width < 100dvh) {
-    :root {
-        --ratio-width: 100dvw;
-        --ratio-height: 75dvw;
-    }
-}
-
 :root {
     --ratio-width: calc(100dvh * (4 / 3));
     --ratio-height: 100dvh;
@@ -213,5 +206,12 @@ body {
             border-color: #B5B5B5;
             background: linear-gradient(to top, #C6C6C6, #D6D6D6, #E7E7E7, #F7F7F7);
         }
+    }
+}
+
+@media (width < 100dvh) {
+    :root {
+        --ratio-width: 100dvw;
+        --ratio-height: 75dvw;
     }
 }
